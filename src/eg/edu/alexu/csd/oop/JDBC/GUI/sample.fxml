@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<!--<?import javafx.scene.effect.Light.Distant?>-->
+
+<GridPane fx:id="gridPane" alignment="center" hgap="10" prefHeight="591.0" prefWidth="710.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.edu.alexu.csd.oop.JDBC.GUI.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="591.0" prefWidth="716.0">
+         <children>
+            <TabPane prefHeight="591.0" prefWidth="710.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab text="DBMS">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="area" layoutX="21.0" layoutY="197.0" prefHeight="333.0" prefWidth="668.0" />
+                              <TextField fx:id="Query" layoutX="21.0" layoutY="90.0" onKeyReleased="#handle" prefHeight="40.0" prefWidth="668.0" />
+                              <Label layoutX="21.0" layoutY="39.0" prefHeight="35.0" prefWidth="197.0" text="Enter SQL Query:" textFill="#961c1c">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="147.0" prefHeight="35.0" prefWidth="95.0" text="Output:" textFill="#961c1c">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+<!--                                    <Light.Distant />-->
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="JBDC">
+                     <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="662.0">
+                           <children>
+                              <TextField fx:id="urlIn" layoutX="26.0" layoutY="52.0" prefHeight="25.0" prefWidth="289.0" />
+                              <Button fx:id="DisconnectButton" disable="true" layoutX="443.0" layoutY="50.0" mnemonicParsing="false" onAction="#disconnect" prefHeight="30.0" prefWidth="104.0" text="Disconnect" textFill="#9d1313">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="connectButton" layoutX="363.0" layoutY="50.0" mnemonicParsing="false" onAction="#connect" text="Connect" textFill="#268830">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
+                              <TextArea fx:id="batchIn" editable="false" layoutX="26.0" layoutY="113.0" prefHeight="338.0" prefWidth="383.0" text="&#10;&#10;">
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant color="#a27171" />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextArea>
+                              <TextField fx:id="sqlIn" editable="false" layoutX="26.0" layoutY="520.0" prefHeight="25.0" prefWidth="417.0" />
+                              <Button fx:id="addToBatchButton" disable="true" layoutX="470.0" layoutY="486.0" mnemonicParsing="false" onAction="#addToBatch" text="Add To Batch" />
+                              <Button fx:id="executeButton" disable="true" layoutX="565.0" layoutY="486.0" mnemonicParsing="false" onAction="#execute" prefHeight="25.0" prefWidth="59.0" text="Execute" />
+                              <Button fx:id="executeBatchButton" disable="true" layoutX="470.0" layoutY="520.0" mnemonicParsing="false" onAction="#executeBatch" prefHeight="25.0" prefWidth="154.0" text="Execute Batch" />
+                              <Label fx:id="connectionLabel" layoutX="559.0" layoutY="55.0" prefHeight="20.0" prefWidth="134.0">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <TextArea fx:id="batchOut" editable="false" layoutX="412.0" layoutY="112.0" prefHeight="168.0" prefWidth="277.0" text="&#10;&#10;">
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant color="#a27171" />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextArea>
+                              <Label layoutX="26.0" layoutY="468.0" prefHeight="35.0" prefWidth="95.0" text="Enter Query" textFill="#961c1c">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="26.0" layoutY="14.0" prefHeight="35.0" prefWidth="95.0" text="Enter URL" textFill="#961c1c">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="fileButton" layoutX="325.0" layoutY="52.0" mnemonicParsing="false" onAction="#fromFile" prefHeight="25.0" prefWidth="24.0" text="Button" />
+                              <Button fx:id="clearBatchButton" disable="true" layoutX="631.0" layoutY="482.0" mnemonicParsing="false" onAction="#clearBatch" prefHeight="66.0" prefWidth="53.0" text="Clear" />
+                              <TextField fx:id="timeOut" layoutX="150.0" layoutY="84.0" prefHeight="25.0" prefWidth="39.0" text="0" />
+                              <Label layoutX="198.0" layoutY="88.0" prefHeight="17.0" prefWidth="50.0" text="seconds" />
+                              <TextArea fx:id="executeOutt" editable="false" layoutX="411.0" layoutY="287.0" prefHeight="164.0" prefWidth="282.0" text="&#10;&#10;">
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant color="#a27171" />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextArea>
+                              <Label layoutX="35.0" layoutY="113.0" prefHeight="35.0" prefWidth="95.0" text="Batch:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="422.0" layoutY="113.0" prefHeight="35.0" prefWidth="146.0" text="Batch Output:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="422.0" layoutY="287.0" prefHeight="35.0" prefWidth="167.0" text="Execute Output:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="26.0" layoutY="79.0" prefHeight="35.0" prefWidth="124.0" text="Query Time Out" textFill="#961c1c">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Blend />
+                                 </bumpInput>
+                                 <light>
+<!--                                    <Light.Distant />-->
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                <Tab text="ResultSet">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tb" prefHeight="564.0" prefWidth="710.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Logger">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="logger" prefHeight="563.0" prefWidth="651.0">
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </TextArea>
+                              <Button layoutX="651.0" layoutY="-3.0" mnemonicParsing="false" onAction="#showFileLines" prefHeight="567.0" prefWidth="60.0" text="View" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+   </children>
+</GridPane>
